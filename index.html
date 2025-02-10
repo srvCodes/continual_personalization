@@ -1,33 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mining your own secrets</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-            background-color: #f4f4f4;
+	<title>Continual Personalization</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+    	h1 {text-align: center;}
+        p {text-align: center; margin: 0px ;}
+        div {text-align: center;}
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0 auto;
+			padding: 0;
+			width:1000px;
+			background-color: #ffffff; /* white color */
+		}
+		h1, h2, h3 {
+			margin: 0 auto;
+			text-align: center;
+			width:950px;
+		}
+		h1 {font-size: 35px}
+		h2 {font-size: 28px}
+		h3 {font-size: 20px}
+		h4 {
+		    text-align: justify;
+		    font-weight:normal;
+			margin: 0 auto;
+			width:950px;
+			font-size: 18px;
+		}
+		.container {
+          max-width: 1000px;
+          margin: 0 auto;
+          padding: 0 20px;
+          box-sizing: border-box;
         }
-        h1 {
-            color: #333;
+		a.author {
+			color: blueviolet;
+			font-weight: bold;
+			font-size: 18px;
+		}
+	    img {
+          display: block;
+          margin: 0 auto;
         }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
+        figcaption {
+          font-size: 18px;
+          text-align: center;
         }
-    </style>
+        .my-container figcaption {
+          font-size: 18px;
+          text-align: center;
+        }
+        
+		.arxiv-link {
+			display: block;
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+			color: darkred;
+			text-decoration: none;
+			padding: 5px 0;
+			background-color: #e6f0ff; /* light blue color */
+			border-radius: 10px;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+			margin: 0px auto;
+			max-width: 50px;
+		}
+		.arxiv-link:hover {
+			background-color: #cde1ff; /* darker blue color on hover */
+			box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+		}
+		.bibtex-section {
+          padding: 5px 0;
+          background-color: #ffffff;
+        }
+        
+        .bibtex-box {
+          display: inline-block;
+          background-color: #fff;
+          padding: 25px 50px 1px 1px;
+          border: 1px solid #f8fbff;
+          font-family: monospace;
+          overflow: auto;
+          text-align: left;
+          max-width: 90%;
+         word-wrap: break-word;
+        }
+        
+         .copy-button {
+          background-color: #e6f0ff;
+          border-color: #e6f0ff;
+          font-weight: bold;
+          font-size: 14px;
+          margin-top: 10px;
+        }
+        
+        .copy-button:hover {
+          background-color: #cde1ff;
+          border-color: #cde1ff;
+          cursor: pointer;
+        }
+        
+	</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mining your own secrets</h1>
-        <p>Welcome to the project page for "Mining your own secrets". Stay tuned for updates!</p>
-        <img src="images/fig1.drawio-1-1.png" alt="Figure 1" width="600">
+	<header>
+	    <br>
+		<h1>Mining your Own Secrets: Diffusion Classifier Scores for Continual Personalization of Text-to-Image Diffusion Models</h1>
+		<br>
+	    <p>
+			<a href="http://sauravjha.com.np/" class="author"><b>Saurav Jha</b></a><sup>1</sup>, <a href="https://www.shiqiyang.xyz/" class="author"><b>Shiqi Yang</b></a><sup>2</sup>, <a href="https://scholar.google.co.jp/citations?user=RRIO1CcAAAAJ&hl=ja" class="author"><b>Masato Ishii</b></a><sup>2</sup>, <a href="https://joemzhao.github.io/" class="author"><b>Mengjie Zhao</b></a><sup>2</sup>, <a href="https://chrysts.github.io/" class="author"><b>Christian Simon</b></a><sup>2</sup>
+		</p>
+		<p>
+			 <a href="https://jmiemirza.github.io/" class="author"><b>M. Jehanzeb Mirza</b></a><sup>3</sup>, <a href="https://donggong1.github.io/" class="author"><b>Dong Gong</b></a><sup>1</sup>, <a href="https://www.linayao.com/" class="author"><b>Lina Yao</b></a><sup>1</sup>, <a href="https://scholar.google.com/citations?hl=en&user=_mhxayYAAAAJ&view_op=list_works&sortby=pubdate" class="author"><b>Shusuke Takahashi</b></a><sup>2</sup>, <a href="https://www.yukimitsufuji.com/" class="author"><b>Yuki Mitsufuji</b></a><sup>4</sup>
+		</p>
+		<br>
+		<p>
+		    <sup>1</sup><b>UNSW Sydney, Australia</b>,
+			<sup>2</sup><b>Sony Group Corporation, Japan</b>,
+			<sup>3</sup><b>MIT CSAIL, USA</b>,
+            <sup>4</sup><b>Sony Group Corporation & Sony AI, USA</b>
+		</p>
+		<p style="color:rgb(223, 48, 25);"><b><i>International Conference on Learning Representations (ICLR 2025)</i></b></p>
+		<br>
+		<a href="https://arxiv.org/pdf/2410.00700" class="arxiv-link">paper</a>
+	</header>
+	<main>
+	    <figure>
+		<img src="images/fig1.drawio-1-1.png" width="65%">
+		<br>
+		<figcaption> <i>Our continual personalization framework employing Diffusion Classifier scores for parameter-space and function-space consolidation.</i></figcaption>
+        </figure>
+		<h2>Abstract</h2>
+		<br>
+		<h4>
+            Personalized text-to-image diffusion models have grown popular for their ability
+            to efficiently acquire a new concept from user-defined text descriptions and a few
+            images. However, in the real world, a user may wish to personalize a model on
+            multiple concepts but one at a time, with no access to the data from previous con-
+            cepts due to storage/privacy concerns. When faced with this continual learning
+            (CL) setup, most personalization methods fail to find a balance between acquiring
+            new concepts and retaining previous ones – a challenge that continual person-
+            alization (CP) aims to solve. Inspired by the successful CL methods that rely
+            on class-specific information for regularization, we resort to the inherent class-
+            conditioned density estimates, also known as diffusion classifier (DC) scores, for
+            CP of text-to-image diffusion models. Namely, we propose using DC scores for
+            regularizing the parameter-space and function-space of text-to-image diffusion
+            models, to achieve continual personalization. Using several diverse evaluation
+            setups, datasets, and metrics, we show that our proposed regularization-based CP
+            methods outperform the state-of-the-art C-LoRA, and other baselines. Finally, by
+            operating in the replay-free CL setup and on low-rank adapters, our method incurs
+            zero storage and parameter overhead, respectively, over the state-of-the-art. 
+		  		</h4>
+		<br>
+		<h2>Method</h2>
+		
+		<figure>
+		<img src="images/ewc.drawio-compressed-1-1.png" width="80%">
+		<br>
+		<figcaption> <i>Derivation of diffusion classifier scores for FIM computation in parameter-space consolidation.</i></figcaption>
+        </figure>
+		<br>
+		
+		<figure text-align: center>
+		<img src="images/dmc.drawio-compressed_removed-1.png" width="80%">
+		<br>
+		<figcaption > <i>Illustration of diffusion classifier scores for function-space consolidation.</i></figcaption>
+        </figure>
+        <br>
+        <h2>Results: Custom Concepts</h2>
+        <figure>
+		<img src="images/main_paper_results_concept_compressed-1-1.png" width="75%">
+		<br>
+		<figcaption>Qualitative results for Custom Concept setup with 6 tasks.</figcaption>
+        </figure>
+        <br>
+		
+        <h2>Results: Landmarks</h2>
+        <figure>
+		<img src="images/main_paper_results_landmarks_compressed-1-1.png" width="75%">
+		<br>
+		<figcaption>Qualitative results for Landmarks setup with 10 tasks.</figcaption>
+        </figure>
+        <br>
+
+        <h2>Results: Textual Inversion</h2>
+        <figure>
+		<img src="images/main_paper_results_tinv_compressed-1-1.png" width="75%">
+		<br>
+		<figcaption>Qualitative results for LoRA-based methods on Textual Inversion dataset setup with 9 tasks.</figcaption>
+        </figure>
+        <br>
+
+        <h2>Results: Celeb-A 256x256</h2>
+        <figure>
+		<img src="images/main_paper_results_celebA_compressed-3-1.png" width="75%">
+		<br>
+		<figcaption>Qualitative results for LoRA-based methods on Celeb-A 256x256 setup with 10 tasks.</figcaption>
+        </figure>
+        <br>
+
+        <h2>Results: Custom Concepts 50 tasks setup</h2>
+        <figure>
+		<img src="images/50tasks_results_compressed-1-1.png" width="65%">
+		<br>
+		<figcaption>Qualitative results for 50 tasks Custom Concept setup.</figcaption>
+        </figure>
+        <br>
+
+        <h2>Results: Multi-concept generation</h2>
+        <figure>
+		<img src="images/multiconcept_gen-1-1.png" width="65%">
+		<br>
+		<figcaption>Multi-concept generation results: the upper row images are generated using the prompt “A photo of V 1
+            plushie tortoise. Posing in front of V 2 waterfall” while the lower row images are generated using the prompt
+            “A photo of V 1 plushie tortoise. Posing with V 2 sunglasses”   .</figcaption>
+        </figure>
+        <br>
+
+        <h2>Results: VeRA on Custom Concept</h2>
+        <figure>
+		<img src="images/vera_results_compressed-1-1.png" width="65%">
+		<br>
+		<figcaption>VeRA results: we preserve our EWC DC framework and replace LoRA with Vector-based
+            Random Matrix Adapters (VeRA).</figcaption>
+        </figure>
+        <br>
+		<h2>BibTeX</h2>
+		
+<section class="bibtex-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="bibtex-box">
+              <pre id="bibtex-text">
+                @inproceedings{
+                    jha2025mining,
+                    title={Mining your own secrets: Diffusion Classifier Scores for Continual Personalization of Text-to-Image Diffusion Models},
+                    author={Saurav Jha and Shiqi Yang and Masato Ishii and Mengjie Zhao and christian simon and Muhammad Jehanzeb Mirza and Dong Gong and Lina Yao and Shusuke Takahashi and Yuki Mitsufuji},
+                    booktitle={The Thirteenth International Conference on Learning Representations},
+                    year={2025},
+                    url={https://openreview.net/forum?id=hUdLs6TqZL}
+                    }
+              </pre>
+            </div>
+            <!--<button class="btn btn-primary copy-button" data-clipboard-target="#bibtex-text">-->
+            <!--  Copy BibTeX-->
+            <!--</button>-->
+            <button class="btn btn-primary copy-button" onclick="copyToClipboard()">Copy BibTeX</button>
+        	<!-- existing code -->
+        	<script>
+        		function copyToClipboard() {
+        			var bibtexText = "@inproceedings{jha2025mining,\n  title={Mining your own secrets: Diffusion Classifier Scores for Continual Personalization of Text-to-Image Diffusion Models},\n  author={Saurav Jha and Shiqi Yang and Masato Ishii and Mengjie Zhao and christian simon and Muhammad Jehanzeb Mirza and Dong Gong and Lina Yao and Shusuke Takahashi and Yuki Mitsufuji},\n  booktitle={The Thirteenth International Conference on Learning Representations},\n  year={2025},\n url={https://openreview.net/forum?id=hUdLs6TqZL}\n}";
+        			var textarea = document.createElement("textarea");
+        			textarea.textContent = bibtexText;
+        			document.body.appendChild(textarea);
+        			textarea.select();
+        			document.execCommand("copy");
+        			document.body.removeChild(textarea);
+        			alert("BibTeX text has been copied to clipboard!");
+        		}
+        	</script>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  
+</section>
+
+    <br>
+	</main>
 </body>
 </html>
