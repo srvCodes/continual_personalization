@@ -155,6 +155,21 @@
             zero storage and parameter overhead, respectively, over the state-of-the-art. 
 		  		</h4>
 		<br>
+        <h2>The flaw within <a href="https://arxiv.org/pdf/2304.06027">C-LoRA</a></h2>
+        <p>We show that C-LoRA (the current SOTA method for continual personalization) allows for a more general
+            degeneracy where any learning on new tasks pushes the LoRA
+            weight values toward zero.</p>
+        <figure>
+            <img src="images/clora_norms-1-1.png" width="30%">
+            <figcaption> <i>LoRA weights of C-LoRA for all tasks.</i></figcaption>
+            </figure>
+            
+            <figure>
+                <img src="images/clora_self_reg-1-1.png" width="30%">
+                <figcaption> <i>C-LoRA's self-regularization loss for incremental tasks.</i></figcaption>
+                </figure>
+                <br>
+                
 		<h2>Method</h2>
 		
 		<figure>
